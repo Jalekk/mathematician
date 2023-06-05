@@ -1,0 +1,169 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数学家关系搜索</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css') }}">
+    <link href="static/css/global.css" type="text/css" rel="stylesheet">
+    <link href="static/css/header.css" type="text/css" rel="stylesheet">
+    <link href="static/css/animate.css" type="text/css" rel="stylesheet">
+    <link href="static/font/iconfont.css" type="text/css" rel="stylesheet">
+    <link href="static/css/index.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+<!--头部导航-->
+<header>
+    <nav>
+        <ul class="clearFix">
+            <li><a href="/">首页</a></li>
+            <li><a href="/statistics">数学家统计信息</a></li>
+            <li><a href="/search">数学家详情</a></li>
+            <li><a href="/allocation">数学家分布情况</a></li>
+            <li><a href="/contact">作者</a></li>
+
+        </ul>
+    </nav>
+    <div class="circle"></div>
+</header>
+<!--页面主体-->
+
+
+
+<script src="static/js/jquery-3.5.1.min.js"></script>
+
+    <script src="{{url_for('static', filename='js/popper.min.js')}}" ></script>
+    <script src="{{url_for('static', filename='js/bootstrap.min.js')}}" ></script>
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.4.2/dist/echarts.min.js"></script>
+    <script src="static/js/echarts.min.js"></script>
+	<script src = "static/js/world.js"></script>
+  <script src="static/js/jquery-3.5.1.min.js"></script>
+
+    <script src="{{url_for('static', filename='js/popper.min.js')}}" ></script>
+    <script src="{{url_for('static', filename='js/bootstrap.min.js')}}" ></script>
+
+
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main" style="width: 100%;height:90%;"></div>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+
+        // 指定图表的配置项和数据
+		var name_title = "数学家分布情况世界地图"
+        var mapName = 'world'
+        var data = [
+        //{ name: 'China', value: 7830 },
+			{ name: 'China', value: 17252 },
+			{ name: 'Japan', value: 20 },
+			{ name: 'Thailand', value: 19 },
+			{ name: 'Singapore', value: 18 },
+			{ name: 'Korea', value: 15 },
+			{ name: 'Australia', value: 12 },
+			{ name: 'United States', value: 11 },
+			{ name: 'Germany', value: 10 },
+			{ name: 'Malaysia', value: 8 },
+			{ name: 'Vietnam', value: 7 },
+			{ name: 'France', value: 6 },
+			{ name: 'United Arab Emirates', value: 5 },
+			{ name: 'Canada', value: 4 },
+			{ name: 'India', value: 3 },
+			{ name: 'Philippines', value: 2 },
+			{ name: 'Italy', value: 2 },
+			{ name: 'United Kingdom', value: 2 },
+			{ name: 'Russia', value: 2 },
+			{ name: 'Nepal', value: 1 },
+			{ name: 'Sri Lanka', value: 1 },
+			{ name: 'Finland', value: 1 },
+			{ name: 'Sweden', value: 1 },
+			{ name: 'Cambodia', value: 1 },
+
+        ];
+
+        var option = {
+            title: {
+                text: name_title,
+                x: 'center',
+                textStyle: {
+                    fontSize: 24
+                },
+            },
+            tooltip: {
+                trigger: 'item',
+                formatter: function(params) {
+                        var toolTiphtml = ''
+						if (isNaN(params.value)){
+						toolTiphtml = params.name + '人数: 0人';
+                        }
+						else{
+						toolTiphtml = params.name + '人数: ' + params.value + '人';
+                        }
+						//console.log(toolTiphtml)
+                        return toolTiphtml;
+                }
+            },
+            toolbox: {
+                feature: {
+                    saveAsImage: {}
+                }
+            },
+            visualMap: {
+                show: true,
+                left: 'left',
+                top: 'bottom',
+                seriesIndex: [0],
+                type:'piecewise',
+                pieces:[
+                    {min:20, color: 'rgb(254,57,101)'},
+                    {min:15, max:19, color: 'rgb(252,157,154)'},
+                    {min:10, max:14, color: 'rgb(249,205,173)'},
+                    {min:5, max:9, color: 'rgb(200,200,169)'},
+                    {min:1, max:4, color: 'rgb(131,175,155)'}
+                ],
+                textStyle: {
+                    color: '#000000'
+                }
+            },
+            geo: {
+                show: true,
+                map: mapName,
+                label: {
+                    normal: {
+                        show: false,
+                        fontSize:12,
+                    },
+                    emphasis: {
+                        show: false,
+                    }
+                },
+                roam: true,
+                itemStyle: {
+                    normal: {
+                        areaColor: '#F6F6F6',
+                        borderColor: '#666666',
+                    },
+                    emphasis: {
+                        areaColor: '#0099CC',
+                    }
+                }
+            },
+            series: [
+                {
+                    type: 'map',
+                    map: mapName,
+                    geoIndex: 0,
+                    animation: false,
+                    data: data
+                },
+            ]
+        };
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,85 @@
+@font-face {
+  font-family: "iconfont"; /* Project id  */
+  src: url('iconfont.ttf?t=1653145782859') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-tuwenxiangqing:before {
+  content: "\f0198";
+}
+
+.icon-gengduo:before {
+  content: "\e660";
+}
+
+.icon-qq:before {
+  content: "\e61c";
+}
+
+.icon-lianxiren:before {
+  content: "\e642";
+}
+
+.icon-jianpan-xianxing:before {
+  content: "\e8ce";
+}
+
+.icon-dianhua:before {
+  content: "\e88b";
+}
+
+.icon-shouye:before {
+  content: "\e62e";
+}
+
+.icon-QQ:before {
+  content: "\e882";
+}
+
+.icon-github-fill:before {
+  content: "\e885";
+}
+
+.icon-xieboke:before {
+  content: "\e624";
+}
+
+.icon-qq1:before {
+  content: "\e60c";
+}
+
+.icon-jianjie:before {
+  content: "\e608";
+}
+
+.icon-tupian:before {
+  content: "\e8ba";
+}
+
+.icon-weixin:before {
+  content: "\e8bb";
+}
+
+.icon-bilibili-line:before {
+  content: "\e66d";
+}
+
+.icon-bijijilu:before {
+  content: "\e6f3";
+}
+
+.icon-github:before {
+  content: "\e673";
+}
+
+.icon-bilibili:before {
+  content: "\e609";
+}
+

@@ -1,0 +1,42 @@
+@charset "UTF-8";
+
+body{
+    height: 100%;
+    background: linear-gradient(#F8DEF6, #B3CDD4, #94D5F1);
+    position: relative;
+}
+
+.main{
+    width: 1200px;
+    height: 600px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100px;
+    bottom: 0;
+    margin: auto auto;
+    background-image: linear-gradient(45deg, rgba(119, 167, 210, 0.4), rgba(255, 193, 179, 0.4));
+    border-radius: 25px;
+    overflow: auto;
+}
+
+.main ul{
+    margin-top: 60px;
+}
+
+.main ul li img{
+    width: 640px;
+    height: 360px;
+    margin: 60px auto;
+    border-radius: 20px;
+    transition: all .5s ease-in-out;
+}
+
+.main ul li {
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.main ul li img:hover{
+    box-shadow:10px 0 10px #F8DEF6, 0 10px 10px #F8DEF6, -10px 0 10px #F8DEF6, 0 -10px 10px #F8DEF6;
+}

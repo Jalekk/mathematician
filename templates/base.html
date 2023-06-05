@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="static/css/bootstrap.min.css">
+    <title>{% block title %} {% endblock %}</title>
+  </head>
+  <body style="background-image:url({{url_for('static',filename='figures/3.jpg')}})">
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/">首页</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/statistics">数学家统计信息<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/search">数学家详情<span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+  </div>
+</nav>
+    <div class="container">
+        {% for message in get_flashed_messages() %}
+        <div class="alert alert-danger">{{ message }}</div>
+        {% endfor %}
+        {% block content %} {% endblock %}
+    </div>
+
+    <script src="static/js/jquery.slim.min.js" ></script>
+    <script src="static/js/popper.min.js" ></script>
+    <script src="static/js/bootstrap.min.js" ></script>
+
+   </body>
+</html>

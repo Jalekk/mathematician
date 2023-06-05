@@ -1,0 +1,83 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数学家关系搜索</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css') }}">
+    <link href="static/css/global.css" type="text/css" rel="stylesheet">
+    <link href="static/css/header.css" type="text/css" rel="stylesheet">
+    <link href="static/css/animate.css" type="text/css" rel="stylesheet">
+    <link href="static/font/iconfont.css" type="text/css" rel="stylesheet">
+    <link href="static/css/index.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+<!--头部导航-->
+<header>
+    <nav>
+        <ul class="clearFix">
+            <li><a href="/">首页</a></li>
+            <li><a href="/statistics">数学家统计信息</a></li>
+            <li><a href="/search">数学家详情</a></li>
+            <li><a href="/allocation">数学家分布情况</a></li>
+            <li><a href="/contact">作者</a></li>
+
+        </ul>
+    </nav>
+    <div class="circle"></div>
+</header>
+<!--页面主体-->
+<div class="main">
+<div class="search" style="padding: 150px 150px">
+    <div class="alert alert-danger" role="alert">
+输入为空，请重新输入....
+</div>
+    <h2 for="send_content" style="font-size: 30px;color:white">搜索数学家：</h2>
+    <input class="form-control mr-sm-2"  id="send_content" type="text" name="send_content" placeholder="请输入搜索的数学家">
+    <input class="btn btn-light my-2 my-sm-0" id="send" type="button" value="搜索">
+
+    <h3 style="color: white ;font-size: 30px">例如:</h3>
+    <div style="color:white;font-size: 20px">
+        <p >艾萨克·牛顿</p>
+    <p> 亚瑟·爱丁顿</p>
+    <p>乔治·斯托克斯</p>
+    <p>伯特兰·罗素</p>
+    <p>笛卡尔</p>
+    </div>
+
+
+</div>
+</div>
+
+
+<script src="static/js/jquery-3.5.1.min.js"></script>
+
+    <script src="{{url_for('static', filename='js/popper.min.js')}}" ></script>
+    <script src="{{url_for('static', filename='js/bootstrap.min.js')}}" ></script>
+<!-- 发送 -->
+<script type="text/javascript">
+    $("#send").click(function () {
+        let content=$("input[name='send_content']").val()
+        var message = $("#send_content").val()
+        $.ajax({
+            url: '{{url_for('find1')}}',
+            type:"GET",
+            headers:{
+                'Cache-Control':'no-cache'
+            },
+            data:{
+                message:message
+            },
+            error:function () {
+                alert("接收失败")
+            },
+            async:false
+        })
+        location.href='{{ url_for('findmathematician') }}?massage='+content
+    })
+</script>
+
+</body>
+</html>
